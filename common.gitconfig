@@ -1,0 +1,30 @@
+[user]
+	name = ryubee
+	email = ryu.bee.ruskbox@gmail.com
+[core]
+	excludesfile = /home/ryusuke-y/.gitignore_global
+	editor = vim
+	pager = less -C
+  quotepath = false
+
+[color]
+	ui = true
+[alias]
+	graph   = log --graph --date-order --all --date=short        --pretty=format:'%C(45)%ad %<(10,trunc)%C(208)%cn %C(15)%s %C(bold 226)%d %C(25)%h %C(198)(%cr)'
+	graphs  = log --graph --date-order       --date=short        --pretty=format:'%C(45)%ad %<(10,trunc)%C(208)%cn %C(15)%s %C(bold 226)%d %C(25)%h %C(198)(%cr)'
+	graphl  = log --graph --date-order --all --date=short        --pretty=format:'%C(45)%ad %<(10,trunc)%C(208)%cn%C(bold 226)%d %C(25)%H %C(198)(%cr)%n    %C(15)%s%n        %N'
+	grapha  = log --graph --date-order --all --date=short --stat --pretty=format:'%C(45)%ad %<(10,trunc)%C(208)%cn%C(bold 226)%d %C(25)%H %C(198)(%cr)%n    %C(15)%s%n        %N'
+
+[push]
+	default = matching
+[credential]
+	helper = cache --timeout=10800
+[merge]
+	tool = vimdiff
+[fetch]
+    prune = true
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
