@@ -204,5 +204,7 @@ export TERM='xterm-256color'
 export ACTIVE=~/Work/Active/EMAXVI
 alias oij='cd /home/ryusuke-y/Work/Active/EMAXVI/'
 
+umask 022
+
 
 
