@@ -98,6 +98,21 @@ noremap! <S-Space> <Space>
 ""-------------------- Vim tex 設定 ---------------------------------------{{{
 let g:tex_conceal='' "勝手に記号化されないよ
 ""}}}
+""-------------------- markdown_syntax_conceal ---------------------------{{{
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown conceallevel=0
+autocmd BufNewFile,BufReadPost *.md set conceallevel=0
+let g:markdown_syntax_conceal = 0
+let g:markdown_conceal = 0
+let g:vim_markdown_conceal = 0
+
+if has('conceal')
+    setlocal conceallevel=0
+endif
+""}}}
+""-------------------- JSON等勝手に文字を非表示にする機能のカウンター --{{{
+set conceallevel=0
+let g:vim_json_syntax_conceal = 0
+""}}}
 ""-------------------- 移動系のマッピング ---------------------------------{{{
 nnoremap <Down> gj
 nnoremap <Up> gk
@@ -153,20 +168,22 @@ if dein#load_state(s:dein_dir) " 設定開始
     call dein#add('Shougo/dein.vim')
 ""-   -   -   -   -   -   -   - Plugin -   -   -   -   -   -   -   -   -   -
     call dein#add('tomasr/molokai')
+    call dein#add('Cognoscan/vim-vhdl')
+    call dein#add('elzr/vim-json')
+    call dein#add('szw/vim-tags')
     call dein#add('vimtaku/hl_matchit.vim.git')
     call dein#add('itchyny/lightline.vim')
     call dein#add('osyo-manga/vim-anzu')
-    call dein#add('Yggdroot/indentLine')
     call dein#add('kien/rainbow_parentheses.vim')
+    call dein#add('lambdalisue/vim-unified-diff')
+    call dein#add('Yggdroot/indentLine')
 ""    call dein#add('vim-scripts/tcl.vim')
 ""    call dein#add('majutsushi/tagbar')
-    call dein#add('szw/vim-tags')
 ""    call dein#add('Shougo/neocomplete.vim')
 ""    call dein#add('Shougo/neosnippet')
 ""    call dein#add('Shougo/neosnippet-snippets')
 ""    call dein#add('ujihisa/neco-look')
-    call dein#add('lambdalisue/vim-unified-diff')
-    call dein#add('petRUShka/vim-opencl')
+""    call dein#add('petRUShka/vim-opencl')
 ""    call dein#add('rust-lang/rust.vim')
 ""    call dein#add('terryma/vim-multiple-cursors')
 ""    call dein#add('Shougo/vimproc.vim', {
@@ -178,11 +195,9 @@ if dein#load_state(s:dein_dir) " 設定開始
 ""                \ })
 ""    call dein#add('eagletmt/ghcmod-vim')
 ""    call dein#add('eagletmt/neco-ghc')
-""    call dein#add('tpope/vim-markdown')
 ""    call dein#add('davidhalter/jedi-vim')
 ""    call dein#add('Shougo/neomru.vim')
 ""    call dein#add('pinkienort/shimapan.vim')
-    call dein#add('Cognoscan/vim-vhdl')
     call dein#end() " 設定終了
     call dein#save_state()
 endif
@@ -215,28 +230,29 @@ hi DiffText     ctermfg=208     ctermbg=0
 set diffopt=iwhite,filler
 ""}}}
 ""-------------------- Neosnippet ----------------------------------------{{{
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-    set conceallevel=2 concealcursor=niv
-    endif
+" " Plugin key-mappings.
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
+" 
+" " SuperTab like snippets behavior.
+" "imap <expr><TAB>
+" " \ pumvisible() ? "\<C-n>" :
+" " \ neosnippet#expandable_or_jumpable() ?
+" " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" 
+" " For conceal markers.
+" if has('conceal')
+"     set conceallevel=2 concealcursor=niv
+"     endif
 ""}}}
 ""-------------------- indentLine ----------------------------------------{{{
 let g:indentLine_color_term = 93
 let g:indentLine_color_gui = '#708090'
 let g:indentLine_char = '|' "use ¦, ┆ or │
+let g:indentLine_setConceal = 0
 ""}}}
 ""-------------------- rainbow_parentheses -------------------------------{{{
 let g:rbpt_colorpairs = [
@@ -392,10 +408,6 @@ augroup END
 ""let g:NeoComplCache_SkipCompletionTime = '30'
 
 ""}}}
-""-------------------- markdown_syntax_conceal ---------------------------{{{
-"" autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-"" let g:markdown_syntax_conceal = 0
-""}}}
 ""-------------------- tcl-vim highlight ---------------------------------{{{
 "" let tcl_extended_syntax=1
 ""}}}
@@ -460,5 +472,8 @@ set cursorcolumn
 ""-------------------- molokaiの背景がグレーになる問題解決案 -----------{{{
 " molokaiの背景がグレーになる問題解決案
 hi Normal       ctermfg=252 ctermbg=none
+""}}}
+""-------------------- conceallevel -----------------------------------------{{{
+set conceallevel=0
 ""}}}
 ""==============================================================================

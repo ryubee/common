@@ -202,7 +202,7 @@ export TERM='xterm-256color'
 #export ARCH=arm
 
 export ACTIVE=~/Work/Active/EMAXVI
-alias oij='cd /home/ryusuke-y/Work/Active/EMAXVI/'
+alias oij='cd /home/yamano/work/root_docker/'
 
 
 
