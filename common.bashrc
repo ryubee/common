@@ -204,5 +204,7 @@ export TERM='xterm-256color'
 export ACTIVE=~/Work/Active/EMAXVI
 alias oij='cd /home/yamano/work/root_docker/'
 
+umask 022
+
 
 
