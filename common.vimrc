@@ -184,7 +184,8 @@ if dein#load_state(s:dein_dir) " 設定開始
 ""    call dein#add('Shougo/neosnippet-snippets')
 ""    call dein#add('ujihisa/neco-look')
 ""    call dein#add('petRUShka/vim-opencl')
-""    call dein#add('rust-lang/rust.vim')
+    call dein#add('rust-lang/rust.vim')
+    call dein#add('racer-rust/vim-racer')
 ""    call dein#add('terryma/vim-multiple-cursors')
 ""    call dein#add('Shougo/vimproc.vim', {
 ""                \ 'build': {
@@ -448,15 +449,17 @@ filetype plugin indent on
 
 augroup fileTypeIndent
     autocmd!
-    autocmd FileType,BufNewFile,BufRead *.c setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.cl setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.h setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.v setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.vh setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.hs setlocal tabstop=8 softtabstop=4 shiftwidth=4 shiftround expandtab
-    autocmd FileType,BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType,BufNewFile,BufRead *.tex setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType,BufNewFile,BufRead *.c     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.cl    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.h     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.cpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.hpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.v     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.vh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.hs    setlocal tabstop=8 softtabstop=4 shiftwidth=4 shiftround expandtab
+    autocmd FileType,BufNewFile,BufRead *.py    setlocal tabstop=4 softtabstop=4 shiftwidth=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.rb    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType,BufNewFile,BufRead *.tex   setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 ""}}}

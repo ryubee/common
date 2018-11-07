@@ -201,6 +201,9 @@ export TERM='xterm-256color'
 #export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
 #export ARCH=arm
 
+export NO_PROXY=localhost
+export no_proxy=localhost
+
 export ACTIVE=~/Work/Active/EMAXVI
 alias oij='cd /home/yamano/work/root_docker/'
 
