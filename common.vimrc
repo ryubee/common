@@ -113,6 +113,9 @@ endif
 set conceallevel=0
 let g:vim_json_syntax_conceal = 0
 ""}}}
+""-------------------- backspaceのマッピング ---------------------------------{{{
+noremap! <C-?> <C-h>
+"""}}}
 ""-------------------- 移動系のマッピング ---------------------------------{{{
 nnoremap <Down> gj
 nnoremap <Up> gk
@@ -449,6 +452,7 @@ filetype plugin indent on
 
 augroup fileTypeIndent
     autocmd!
+    autocmd FileType,BufNewFile,BufRead *.sh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     autocmd FileType,BufNewFile,BufRead *.c     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     autocmd FileType,BufNewFile,BufRead *.cl    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     autocmd FileType,BufNewFile,BufRead *.h     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class

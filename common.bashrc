@@ -1,4 +1,4 @@
-#if you want to know more color option, see this http://misc.flogisoft.com/bash/tip_colors_and_formatting
+# color option http://misc.flogisoft.com/bash/tip_colors_and_formatting
 
 # If bash does not exist, return
 if [ -z "$PS1" ]; then
@@ -30,7 +30,7 @@ alias sshrm='rm -f ${SSH_AGENT_FILE}'
 SSH_AGENT_FILE="${HOME}/.ssh/.ssh-agent.`hostname`"
 if [ -f ${SSH_AGENT_FILE} ]; then
     eval `cat ${SSH_AGENT_FILE}`
-    ssh_agent_exist=0    
+    ssh_agent_exist=0
     for id in `ps ax|grep 'ssh-agent'|sed -e 's/\([0-9]\+\).*/\1/'`
     do 
         if [ ${SSH_AGENT_PID} = ${id} ]
@@ -57,8 +57,12 @@ fi
 if [ "${CONTAMI}" = 1 ]; then
     echo ""
 else 
-    export BASHMON='\[\e[48;5;33m\]\[\e[38;5;230m\](*ﾟﾛﾟ)< \@ \[\e[38;5;33m\]\[\e[48;5;230m\]⮀\[\e[38;5;17m\]\[\e[48;5;230m\]\w \[\e[00m\]\[\e[38;5;230m\]⮀\[\e[00m\]\r\n'
+    export BASHMON='\[\e[48;5;33m\]\[\e[38;5;230m\] \@ \[\e[38;5;33m\]\[\e[48;5;230m\]⮀\[\e[38;5;17m\]\[\e[48;5;230m\] \w \[\e[00m\]\[\e[38;5;230m\]⮀\[\e[00m\]\r\n'
 fi
+
+if [ -v ${IMAGE_NAME} ]; then
+fi
+
 
 TMP_PS=${BASHMON}'\[\e[38;5;202m\]\u\[\e[38;5;123m\]@\[\e[38;5;198m\]\h:\[\e[38;5;81m\]\W\[\e[00m\]\$ '
 
@@ -70,7 +74,6 @@ else
     export PROMPT_COMMAND='share_history'
 fi
 
-# ls color
 if [ `uname` = "Linux" ]; then
     screenfetch
     LS_COLORS='no=00;38;5;118:fi=00:di=00;38;5;81:ln=00;38;5;12:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.i386.rpm=01;31:*.src.rpm=01;30:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.png=01;35:*.c=01;38;5;220:*.h=01;38;5;220:*.cpp=01;38;5;220:*.v=01;38;5;214:*.sv=01;38;5;214:*.vhd=01;38;5;214:*.vhdl=01;38;5;214:'
@@ -154,8 +157,6 @@ export TERM='xterm-256color'
 export NO_PROXY=localhost
 export no_proxy=localhost
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 export LESSCHARSET=utf-8
 
 #export CROSS_COMPILE=aarch64-linux-gnu-
