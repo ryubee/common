@@ -1,0 +1,5 @@
+[[plugins]]
+repo = "tomasr/molokai"
+hook_add = '''
+    sourcec ~/.config/nvim/plugins/molokai.vim
+'''
