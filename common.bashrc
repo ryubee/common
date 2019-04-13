@@ -91,6 +91,7 @@ if [ `uname` = "Linux" ]; then
     alias ghc='stack ghc --'
     alias ghci='stack ghci --'
     alias runhaskell='stack runhaskell --'
+    alias tmux='tmux -u'
 
 elif [ `uname` = 'FreeBSD' ]; then
     export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -142,6 +143,13 @@ esac
 function dict() {
   grep $1 ${HOME}/work/Dict/gene.txt -A 1 -wi --color
 }
+
+
+export LANG='ja_JP.UTF-8'
+export LC_ALL='ja_JP.UTF-8'
+export LC_CTYPE='ja_JP.UTF-8'
+
+
 
 
 export EDITOR='vi'

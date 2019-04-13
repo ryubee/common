@@ -93,8 +93,6 @@ set autoindent "新しい行のインデントを現在の行と同じにする
 set smartindent "オートインデント
 set cindent
 
-filetype plugin indent on
-
 augroup fileTypeIndent
     autocmd!
     autocmd FileType,BufNewFile,BufRead *.sh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
@@ -208,8 +206,14 @@ if dein#load_state(s:dein_dir) " 設定開始
     call dein#save_state()
 endif
 
+filetype plugin indent on
+syntax enable
+
 if dein#check_install() " もし、未インストールものものがあったらインストール
     call dein#install()
 endif
+
+let g:deoplete#enable_at_startup = 1
 ""}}}
 ""==============================================================================
+syntax on

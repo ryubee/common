@@ -1,0 +1,74 @@
+# [[plugins]]
+# repo = 'Shougo/context_filetype.vim'
+
+
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# on_i = 1
+# if = 'has("nvim")'
+# on_i = 1
+# hook_add = '''
+# ""let g:deoplete#enable_at_startup = 1
+# 
+# " Vim起動時にdeopleteを有効にする
+# let g:deoplete#enable_at_startup = 1
+# " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
+# let g:deoplete#enable_smart_case = 1
+# " 3文字以上の単語に対して補完を有効にする
+# let g:deoplete#min_keyword_length = 3
+# " 区切り文字まで補完する
+# let g:deoplete#enable_auto_delimiter = 1
+# " 1文字目の入力から補完のポップアップを表示
+# let g:deoplete#auto_completion_start_length = 1
+# " バックスペースで補完のポップアップを閉じる
+# inoremap <expr><BS> deoplete#smart_close_popup()."<C-h>"
+# " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
+# imap <expr><CR> neosnippet#expandable() ? "<Plug>
+# '''
+# hook_post_source = '''
+# let g:deoplete#omni_patterns = {}
+# '''
+# hook_source = '''
+#   let g:deoplete#enable_at_startup = 1
+#   inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+#         \ neosnippet#expandable_or_jumpable() ?
+#         \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+# '''
+
+
+# [[plugins]]
+# repo = 'autozimu/LanguageClient-neovim'
+# rev = 'next'
+# build = 'bash install.sh'
+# depends = ['deoplete.nvim']
+# on_i = 1
+# hook_add = '''
+# source ~/.config/nvim/plugin/LanguageClient-neovim.rc.vim
+# '''
+
+
+# [[plugins]]
+# repo = 'Shougo/neosnippet'
+# on_i  = 1
+# on_ft = ['snippet']
+# depends = ['neosnippet-snippets']
+# hook_source = '''
+#   imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   smap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   xmap <C-k> <Plug>(neosnippet_expand_target)
+#   if has('conceal')
+#     set conceallevel=2 concealcursor=niv
+#   endif
+# '''
+# 
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
+# 
+# [[plugins]]
+# repo = 'rust-lang/rust.vim'
+# on_i = 1
+# on_ft = 'rust'
+# hook_add = '''
+# source ~/.config/nvim/plugin/rust.rc.vim
+# '''
+

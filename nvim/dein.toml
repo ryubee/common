@@ -1,5 +1,56 @@
+
 [[plugins]]
-repo = "tomasr/molokai"
+repo = 'tomasr/molokai'
 hook_add = '''
-    sourcec ~/.config/nvim/plugins/molokai.vim
+source ~/.config/nvim/plugin/molokai.rc.vim
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+source ~/.config/nvim/plugin/vim-anzu.rc.vim
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+depends = ['vim-anzu']
+hook_add = '''
+source ~/.config/nvim/plugin/lightline.rc.vim
+'''
+
+
+
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+'''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+depends = ['deoplete.nvim']
+build = 'bash install.sh'
+hook_add = '''
+source ~/.config/nvim/plugin/LanguageClient-neovim.rc.vim
+
+" set hidden
+" let g:LanguageClient_serverCommands = {
+"       \ 'cpp': ['clangd'],
+"       \ }
+" let g:LanguageClient_loadSettings = 1
+" let g:LanguageClient_hasSnippetSupport = 0
+" 
+" set completefunc=LanguageClient#complete
+" 
+" nnoremap K :call LanguageClient#textDocument_hover()<CR>
+" nnoremap F :call LanguageClient#textDocument_formatting()<CR>
+'''
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_add = '''
+source ~/.config/nvim/plugin/rust.rc.vim
 '''

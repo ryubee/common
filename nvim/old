@@ -1,0 +1,18 @@
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+    sourcec ~/.config/nvim/plugins/molokai.vim
+'''
+
+# [[plugins]]
+# repo = 'osyo-manga/vim-anzu'
+# hook_add = '''
+#     sourcec ~/.config/nvim/plugins/vim-anzu.vim
+# '''
+# 
+# [[plugins]]
+# repo = 'itchyny/lightline'
+# hook_add = '''
+#     sourcec ~/.config/nvim/plugins/lightline.vim
+'''
+
