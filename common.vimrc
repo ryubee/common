@@ -151,6 +151,43 @@ set lazyredraw
 ""-------------------- ANSI制御文字の掃除 ---------------------------------{{{
 command! DeleteAnsi %s/\[[0-9;]*m//g
 ""}}}
+""-------------------- 行と列の強調表示 --------------------------------{{{
+" 行を強調表示
+set cursorline
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+" アンダーラインを引く(gui)
+""highlight CursorLine gui=underline guifg=NONE guibg=NONE
+" 列を強調表示
+set cursorcolumn
+""}}}
+""-------------------- tab -----------------------------------------------{{{
+set expandtab "タブの代わりに空白文字を指定する
+set tabstop=4 "インデントをスペース4つ分にする
+set shiftwidth=4
+set softtabstop=4
+set smarttab "新しい行を作った時に高度な自動インデントを行う
+set autoindent "新しい行のインデントを現在の行と同じにする
+set smartindent "オートインデント
+set cindent
+
+filetype plugin indent on
+
+augroup fileTypeIndent
+    autocmd!
+    autocmd FileType,BufNewFile,BufRead *.sh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.c     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.cl    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.h     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.cpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.hpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.v     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.vh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.hs    setlocal tabstop=8 softtabstop=4 shiftwidth=4 shiftround expandtab
+    autocmd FileType,BufNewFile,BufRead *.py    setlocal tabstop=4 softtabstop=4 shiftwidth=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+    autocmd FileType,BufNewFile,BufRead *.rb    setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType,BufNewFile,BufRead *.tex   setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
+""}}}
 ""============================== プラグインの設定 ==============================
 ""-------------------- 括弧のマッチング -----------------------------------{{{
 runtime macros/matchit.vim
@@ -423,6 +460,8 @@ set notermguicolors
 let g:molokai_original = 1
 let g:rehash256 = 1
 highlight Normal ctermbg=none
+" molokaiの背景がグレーになる問題解決案
+hi Normal       ctermfg=252 ctermbg=none
 syntax on
 ""}}}
 ""-------------------- hl_matchit ----------------------------------------{{{
@@ -437,48 +476,6 @@ augroup verilog_match
     autocmd FileType,BufNewFile,BufRead *.vh let b:match_words='\<begin\>:\<end\>'
 augroup END
 
-""}}}
-""-------------------- tab -----------------------------------------------{{{
-set expandtab "タブの代わりに空白文字を指定する
-set tabstop=4 "インデントをスペース4つ分にする
-set shiftwidth=4
-set softtabstop=4
-set smarttab "新しい行を作った時に高度な自動インデントを行う
-set autoindent "新しい行のインデントを現在の行と同じにする
-set smartindent "オートインデント
-set cindent
-
-filetype plugin indent on
-
-augroup fileTypeIndent
-    autocmd!
-    autocmd FileType,BufNewFile,BufRead *.sh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.c     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.cl    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.h     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.cpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.hpp   setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.v     setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.vh    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.hs    setlocal tabstop=8 softtabstop=4 shiftwidth=4 shiftround expandtab
-    autocmd FileType,BufNewFile,BufRead *.py    setlocal tabstop=4 softtabstop=4 shiftwidth=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-    autocmd FileType,BufNewFile,BufRead *.rb    setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType,BufNewFile,BufRead *.tex   setlocal tabstop=2 softtabstop=2 shiftwidth=2
-augroup END
-
-""}}}
-""-------------------- 行と列の強調表示 --------------------------------{{{
-" 行を強調表示
-set cursorline
-highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
-" アンダーラインを引く(gui)
-""highlight CursorLine gui=underline guifg=NONE guibg=NONE
-" 列を強調表示
-set cursorcolumn
-""}}}
-""-------------------- molokaiの背景がグレーになる問題解決案 -----------{{{
-" molokaiの背景がグレーになる問題解決案
-hi Normal       ctermfg=252 ctermbg=none
 ""}}}
 ""-------------------- conceallevel -----------------------------------------{{{
 set conceallevel=0

@@ -5,3 +5,5 @@ for item in $commons
 do
     ln -sf $(pwd)/$item ${HOME}/${item##common}
 done
+
+ln -sf -r nvim ~/.config
