@@ -2,7 +2,7 @@
 	name = ryubee
 	email = ryu.bee.ruskbox@gmail.com
 [core]
-	excludesfile = /home/ryusuke-y/.gitignore_global
+	excludesfile = /home/ryubee/.gitignore_global
 	editor = vim
 	pager = less -C
   quotepath = false

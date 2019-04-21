@@ -9,6 +9,9 @@ fi
 if [ -f /etc/bashrc ]; then
     source /etc/bashrc
 fi
+if [ -f /etc/profile ]; then
+    source /etc/profile
+fi
 
 if [ "`stty | grep erase`" = "" ] ; then
     stty erase 
@@ -99,10 +102,7 @@ elif [ `uname` = 'FreeBSD' ]; then
 fi
 
 if [[ -z $TMUX ]]; then
-    export PATH=~/script:$PATH
-    export PATH=~/Work/utils:$PATH
-    export PATH=/usr/local/bin:$PATH
-    export PATH=/home/ryusuke-y/.local/bin:$PATH
+    export PATH=$PATH:/usr/local/bin
 fi
 
 if [ $(arch) = "aarch64" ];then

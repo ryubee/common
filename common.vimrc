@@ -461,8 +461,8 @@ let g:molokai_original = 1
 let g:rehash256 = 1
 highlight Normal ctermbg=none
 " molokaiの背景がグレーになる問題解決案
-hi Normal       ctermfg=252 ctermbg=none
 syntax on
+hi Normal       ctermfg=252 ctermbg=none
 ""}}}
 ""-------------------- hl_matchit ----------------------------------------{{{
 let g:hl_matchit_enable_on_vim_startup = 0
