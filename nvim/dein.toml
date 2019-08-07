@@ -24,6 +24,12 @@ repo = 'Shougo/context_filetype.vim'
 
 
 [[plugins]]
+repo = 'rust-lang/rust.vim'
+hook_add = '''
+source ~/.config/nvim/plugin/rust.rc.vim
+'''
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 #depends = ['LanguageClient-neovim']
 depends = ['context_filetype.vim']
@@ -37,11 +43,5 @@ rev = 'next'
 build = 'bash install.sh'
 hook_add = '''
 source ~/.config/nvim/plugin/LanguageClient-neovim.rc.vim
-'''
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-hook_add = '''
-source ~/.config/nvim/plugin/rust.rc.vim
 '''
 

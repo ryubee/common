@@ -1,3 +1,9 @@
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_i = 1
+hook_add = '''
+'''
+
 # [[plugins]]
 # repo = 'Shougo/context_filetype.vim'
 

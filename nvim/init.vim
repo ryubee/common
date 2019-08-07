@@ -107,6 +107,7 @@ augroup fileTypeIndent
     autocmd FileType,BufNewFile,BufRead *.py    setlocal tabstop=4 softtabstop=4 shiftwidth=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     autocmd FileType,BufNewFile,BufRead *.rb    setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType,BufNewFile,BufRead *.tex   setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType,BufNewFile,BufRead *.rs    setlocal tabstop=2 softtabstop=2 shiftwidth=2 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,fn,match,loop,impl
 augroup END
 ""}}}
 ""-------------------- 拡張子別設定 ---------------------------------------{{{
