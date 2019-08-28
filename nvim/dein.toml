@@ -45,3 +45,6 @@ hook_add = '''
 source ~/.config/nvim/plugin/LanguageClient-neovim.rc.vim
 '''
 
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+

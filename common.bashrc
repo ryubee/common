@@ -9,6 +9,7 @@ fi
 if [ -f /etc/bashrc ]; then
     source /etc/bashrc
 fi
+
 if [ -f /etc/profile ]; then
     source /etc/profile
 fi
@@ -118,22 +119,10 @@ fi
 umask 022
 
 case "${HOSTNAME}" in
-    "cad111.naist.jp"|"cad112.naist.jp"|"cad113.naist.jp"|"cad114.naist.jp")
+    "cad1"|"cad2")
         echo ${HOSTNAME}
         ;;
-    "arch09.naist.jp"|"cad103.naist.jp"|"cad104.naist.jp"|"cad105.naist.jp"|"cad106.naist.jp"|"cad110.naist.jp")
-        echo ${HOSTNAME}
-        ;;
-    "cad117")
-        echo ${HOSTNAME}
-        ;;
-    "cad116")
-        echo ${HOSTNAME}
-        ;;
-    "cad115")
-        echo ${HOSTNAME}
-        ;;
-    "cad118")
+    "cad3")
         echo ${HOSTNAME}
         ;;
     *)
@@ -148,8 +137,6 @@ function dict() {
 export LANG='ja_JP.UTF-8'
 export LC_ALL='ja_JP.UTF-8'
 export LC_CTYPE='ja_JP.UTF-8'
-
-
 
 
 export EDITOR='vi'

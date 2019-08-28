@@ -23,7 +23,7 @@ let g:LanguageClient_diagnosticsEnable=0
 "" endfunction
 "" autocmd FileType * call LC_maps()
 
- nnoremap <silent> K :call LanguageClient_textDocument_hover()
- nnoremap <silent> gd :call LanguageClient_textDocument_definition()
- nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()
-
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()
+nnoremap <silent> <F2> :call LanguageClient_textDocument_formatting()<CR>
